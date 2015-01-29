@@ -36,7 +36,7 @@ module Dumper
       @api_base = options[:api_base] || 'https://dumper.io'
       @app_key = options[:app_key]
       @app_env = @stack.rails_env
-      @app_name = ObjectSpace.each_object(Rails::Application).first.class.name.split("::").first
+      @app_name = options[:app_name] || ObjectSpace.each_object(Rails::Application).first.class.name.split("::").first
       if options[:debug]
         logger.level = stdout_logger.level = Logger::DEBUG
         Thread.abort_on_exception = true
