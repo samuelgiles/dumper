@@ -73,6 +73,14 @@ end
 
 If you are using resque, it's a good idea to run it on the same host with Redis, and start the agent on the resque instance.
 
+## Application Name
+
+The default application name uses your Rails application class name, you can manually specify an application name by passing the :app_name option when starting the agent.
+
+```ruby
+Dumper::Agent.start(:app_key => 'YOUR_APP_KEY', :app_name => "YOUR_APP_NAME")
+```
+
 ## Debugging
 
 If the agent doesn't seem to work, pass `true` to the `debug` option.
